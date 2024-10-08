@@ -7,3 +7,11 @@ body {
     display:flex;
     flex-direction: row;
 }
+
+#save {
+    height:25px;
+}
+
+#load {
+    height:25px;
+}
