@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Bidding App</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="main.js" defer></script>
-    </head>
-    <body>
-        <div class="bidder">
-            <input id="input1" class="bid">
-            <button onclick="addBid1()">Place Bid</button>
-            <ul id="array1">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidding App with Local Storage</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    
+    <input type="number" id="bidInput1">
+    <button id="placeBid1" onclick="addBid('bidInput1')">Place Bid</button>
+    <br>
+    <input type="number" id="bidInput2">
+    <button id="placeBid2" onclick="addBid('bidInput2')">Place Bid</button>
+    <br><br>
+    <button id="displayBids" onclick="showBids()">Display Bids</button>
+    <button id="clearBids" onclick="deleteBids()">Clear Bids</button>
+    <button id="storeBids" onclick="storeBids()">Store Bids</button>
+    <button id="retrieveBids" onclick="retrieveBids()">Retrieve Bids</button>
+    <br>
+    <h3>Bids:</h3>
+    <div id="bidOutput"></div>
 
-            </ul>
-        </div>
-        <div class="bidder">
-            <input id="input2" class="bid">
-            <button onclick="addBid2()">Place Bid</button>
-            <ul id="array2">
 
-            </ul>
-        </div>
-        <button id="save" onclick="saveBids()">Save Bids</button>
-        <button id="load" onclick="loadBids()">Load Bids</button>
-    </body>
+
+
+    
+    <script src="main.js"></script>
+</body>
 </html>

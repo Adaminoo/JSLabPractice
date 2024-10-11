@@ -1,30 +1,45 @@
-let array1 = [];
-let array2 = [];
+let bidArray = [4, 6, 7, 19];
 
-function addBid1() {
-    let bid1 = document.getElementById("input1");
-    let num1 = Number(bid1.value);
-    array1.push("<li>" + num1 + "</li>");
-    document.getElementById("array1").innerHTML = array1.join("");
+function showBids() {
+    // Create a function that will add the array of bids to the element
+    console.log(bidArray);
+    let outputString = "";
+    for (let i = 0; i < bidArray.length; i++) {
+        outputString += `<p>${bidArray[i]}</p>`;
+    }
+    document.getElementById("bidOutput").innerHTML = outputString;
 }
 
-function addBid2() {
-    let bid2 = document.getElementById("input2");
-    let num2 = Number(bid2.value);
-    array2.push("<li>" + num2 + "</li>");
-    document.getElementById("array2").innerHTML = array2.join("");
+function deleteBids() {
+    bidArray = [];
+    document.getElementById("bidOutput").innerHTML = "";
 }
 
-function saveBids() {
-    localStorage.setItem("savedbids1", array1)
-    localStorage.setItem("savedbids2", array2)
+function addBid(inputID) {
+    // Create a function that will take the text in an input box and add it to the array of bids
+    let inputElement = document.getElementById(inputID);
+    let bidInput = Number.parseFloat(inputElement.value);
+
+    if (!bidInput) {
+        alert("Please enter a number value.");
+        return;
+    }
+
+    bidArray.push(bidInput);
+
+    document.getElementById(inputID).value = "";
 }
 
-function loadBids() {
-    let reload1 = []
-    reload1 = localStorage.getItem("savedbids1")
-    array1 = reload1
-    console.log(array1)
-    console.log(reload1)
-    document.getElementById("array1").innerHTML = array1.join("");
+function storeBids() {
+    // Create a function that will save the array of bids to localStorage
+    localStorage.setItem("key", "value");
+    let test = localStorage.getItem("key");
+    console.log(test);
+    localStorage.setItem("storedBids", JSON.stringify(bidArray));
+}
+
+function retrieveBids() {
+    // Create a function that will retrieve the array of bids from localStorage
+    bidArray = JSON.parse(localStorage.getItem("storedBids"));
+    showBids();
 }
